@@ -51,20 +51,21 @@ def login(database):
 # función principal
 def main():
     database = {}
-    while True:
-        options = input("Bienvenido/a! Por favor ingrese una opción: \n1. Crear nuevo usuario. \n2. Mostrar usuarios existentes \n3. Iniciar sesión \n0. Salir \n")
-        if options == "1":
-            print("Elegiste crear un nuevo usuario.")
-            save_data(database)
-        elif options == "2":
-            show_data(database)
-        elif options == "3":
-            login(database)
-        elif options == "0":
-            print("La aplicación se cerró.")
-            break
-        elif options != "0" and options != "1" and options != "2" and options != "3":
-            print("Por favor ingrese números del 0 al 3.\n")
-        else:
-            print("Ocurrió un error inesperado en la aplicación, por favor intente nuevamente.\n")
+    try:
+        while True:
+            options = input("Bienvenido/a! Por favor ingrese una opción: \n1. Crear nuevo usuario. \n2. Mostrar usuarios existentes \n3. Iniciar sesión \n0. Salir \n")
+            if options == "1":
+                print("Elegiste crear un nuevo usuario.")
+                save_data(database)
+            elif options == "2":
+                show_data(database)
+            elif options == "3":
+                login(database)
+            elif options == "0":
+                print("La aplicación se cerró.")
+                break
+            elif options != "0" and options != "1" and options != "2" and options != "3":
+                print("Por favor ingrese números del 0 al 3.\n")
+    except Exception as e:
+        print("Ocurrió un error inesperado en la aplicación.", e)
 main()
